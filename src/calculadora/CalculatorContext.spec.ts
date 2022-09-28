@@ -37,4 +37,13 @@ describe("The calculator", () => {
 
     expect(calculator.executeOperation(a, b)).toBe(2 / 3);
   });
+
+  it("is going to do two operations", () => {
+    const a = 6;
+    const b = 3;
+    const calculator = new CalculatorContext(new MultiplyStrategy());
+    expect(calculator.executeOperation(a, b)).toBe(6*3);
+    calculator.setStrategy( new DivideStrategy() )
+    expect(calculator.executeOperation(a, b)).toBe(2);
+  });
 });
